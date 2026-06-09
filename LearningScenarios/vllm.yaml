@@ -54,4 +54,4 @@ spec:
           env:
 
           - name: HUGGING_FACE_HUB_TOKEN
-            value: "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"
+            value: "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"
