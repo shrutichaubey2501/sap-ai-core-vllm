@@ -1,1 +1,57 @@
+apiVersion: ai.sap.com/v1alpha1
+kind: ServingTemplate
 
+metadata:
+  name: vllm
+
+  annotations:
+    scenarios.ai.sap.com/description: "Run vLLM on SAP AI Core"
+    scenarios.ai.sap.com/name: "vllm"
+
+    executables.ai.sap.com/description: "vLLM Service"
+    executables.ai.sap.com/name: "vllm"
+
+  labels:
+    scenarios.ai.sap.com/id: "vllm"
+    ai.sap.com/version: "0.0.1"
+
+spec:
+
+  template:
+
+    apiVersion: serving.kserve.io/v1beta1
+
+    metadata:
+
+      annotations: |
+        autoscaling.knative.dev/metric: concurrency
+        autoscaling.knative.dev/target: 1
+        autoscaling.knative.dev/targetBurstCapacity: 0
+
+      labels: |
+        ai.sap.com/resourcePlan: infer.s
+
+    spec: |
+
+      predictor:
+
+        imagePullSecrets:
+        - name: Default
+
+        minReplicas: 1
+        maxReplicas: 1
+
+        containers:
+
+        - name: kserve-container
+
+          image: docker.io/chaubs/gemma-vllm:latest
+
+          ports:
+          - containerPort: 8000
+            protocol: TCP
+
+          env:
+
+          - name: HUGGING_FACE_HUB_TOKEN
+            value: "<HF_TOKEN>"
