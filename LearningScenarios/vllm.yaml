@@ -57,3 +57,15 @@ spec:
               secretKeyRef:
                 name: hf-token-secret
                 key: token
+          
+          - name: HF_HOME
+            value: /tmp/huggingface
+          
+          - name: TRANSFORMERS_CACHE
+            value: /tmp/huggingface
+          
+          - name: HUGGINGFACE_HUB_CACHE
+            value: /tmp/huggingface
+          
+          - name: HOME
+            value: /tmp
