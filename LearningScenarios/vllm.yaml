@@ -45,7 +45,7 @@ spec:
 
         - name: kserve-container
 
-          image: docker.io/chaubs/gemma-vllm:v4
+          image: docker.io/chaubs/gemma-vllm:v5
 
           ports:
           - containerPort: 8000
