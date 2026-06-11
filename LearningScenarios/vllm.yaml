@@ -29,7 +29,7 @@ spec:
         autoscaling.knative.dev/targetBurstCapacity: 0
 
       labels: |
-        ai.sap.com/resourcePlan: infer.s
+        ai.sap.com/resourcePlan: infer.l
 
     spec: |
 
@@ -45,7 +45,7 @@ spec:
 
         - name: kserve-container
 
-          image: docker.io/chaubs/qwen-vllm:v2
+          image: docker.io/chaubs/gemma-vllm:v2
 
           ports:
           - containerPort: 8000
