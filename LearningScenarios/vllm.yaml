@@ -29,7 +29,7 @@ spec:
         autoscaling.knative.dev/targetBurstCapacity: 0
 
       labels: |
-        ai.sap.com/resourcePlan: infer.l
+        ai.sap.com/resourcePlan: train.l
 
     spec: |
 
